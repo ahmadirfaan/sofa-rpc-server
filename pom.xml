@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.alipay.sofa</groupId>
         <artifactId>sofaboot-dependencies</artifactId>
-        <version>4.0.0</version>
+        <version>3.19.1</version>
     </parent>
     <groupId>com.irfaan</groupId>
     <artifactId>sofa-rpc-server</artifactId>
@@ -13,14 +13,12 @@
     <name>sofa-rpc-server</name>
     <description>sofa-rpc-server</description>
     <properties>
-        <java.version>17</java.version>
-        <sofa.boot.version>4.0.0</sofa.boot.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>test-sofa-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alipay.sofa</groupId>
@@ -29,12 +27,11 @@
         <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>healthcheck-sofa-boot-starter</artifactId>
-            <version>3.19.1	</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-web</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -51,5 +48,30 @@
             </plugin>
         </plugins>
     </build>
+
+    <profile>
+        <id>default</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <id>maven-snapshot</id>
+                <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <id>maven-snapshot</id>
+                <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            </pluginRepository>
+        </pluginRepositories>
+    </profile>
 
 </project>
